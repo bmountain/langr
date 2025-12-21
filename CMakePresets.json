@@ -1,0 +1,42 @@
+{
+  "version": 10,
+  "configurePresets": [
+    {
+      "name": "default",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "${sourceDir}/build",
+      "installDir": "${sourceDir}",
+      "cacheVariables":{
+        "CMAKE_CONFIGURATION_TYPES": "Release;Debug;Sanitize",
+        "CMAKE_COLOR_DIAGNOSTICS": "ON"
+      },
+      "environment": {
+        "CXXFLAGS": "-Wall -Wextra -Wpedantic",
+        "CC": "gcc",
+        "CXX": "g++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "base",
+      "configurePreset": "default",
+      "hidden": true
+    },
+    {
+      "name": "release",
+      "inherits": "base",
+      "configuration": "Release"
+    },
+    {
+      "name": "debug",
+      "inherits": "base",
+      "configuration": "Debug"
+    },
+    {
+      "name": "sanitize",
+      "inherits": "base",
+      "configuration": "Sanitize"
+    }
+  ]
+}
