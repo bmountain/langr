@@ -1,1 +1,1 @@
-add_test_executable(TestSoundex TestSoundex.cpp)
+add_test_executable(TestSoundex TestSoundex.cpp Soundex.cpp)
